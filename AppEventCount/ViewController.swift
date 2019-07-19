@@ -10,11 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var didFinishLaunchingLabel: UILabel!
+    @IBOutlet weak var willResignActiveLabel: UILabel!
+    @IBOutlet weak var didEnterBackgroundLabel: UILabel!
+    @IBOutlet weak var willEnterForegroundLabel: UILabel!
+    @IBOutlet weak var didBecomeActiveLabel: UILabel!
+    @IBOutlet weak var willTerminateLabel: UILabel!
+    
+    var launchCount = 0
+    var resignActiveCount = 0
+    var enterBackgroundCount = 0
+    var enterForegroundCount = 0
+    var becomeActiveCount = 0
+    var terminateCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateView()
     }
-
-
+    
+    func updateView() {
+        didFinishLaunchingLabel.text = "didFinishLaunching: \(launchCount)"
+        willResignActiveLabel.text = "applicationWillResignActive \(resignActiveCount)"
+        didEnterBackgroundLabel.text = "applicationDidEnterBackground \(enterBackgroundCount)"
+        willEnterForegroundLabel.text = "applicationWillEnterForegroun \(enterForegroundCount)"
+        didBecomeActiveLabel.text = "applicationDidBecomeActive \(becomeActiveCount)"
+        willTerminateLabel.text = "applicationWillTerminate \(terminateCount)"
+    }
+    
 }
 
